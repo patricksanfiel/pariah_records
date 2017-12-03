@@ -14,17 +14,20 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-    @comment = Comment.new
+    @record = Record.find(params[:record_id])
+    @comment = @record.comments.new
   end
 
   # GET /comments/1/edit
   def edit
+    @trip = Trip.find(params[:trip_id])
   end
 
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(comment_params)
+    @record = Record.find(params[:record_id])
+    @comment = @record.comments.new(comment_params)
 
     respond_to do |format|
       if @comment.save

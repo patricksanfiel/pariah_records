@@ -24,6 +24,15 @@
   <strong>Price:</strong>
   <%= @record.price %>
 </p>
+<span class='commentheader'>Comments</span><br />
+<% @record.comments.each do |comment| %>
+<p><span class='commenttitle'><%= comment.title %></span><br />
+  <%= comment.body %>
+</p>
+<% end %>
+<p>
+  <%= link_to 'Comment', new_record_comment_path(@record) %>
+</p>
 
 <%= link_to 'Edit', edit_record_path(@record) %> |
 <%= link_to 'Back', records_path %>
