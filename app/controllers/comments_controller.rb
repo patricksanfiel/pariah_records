@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
   # GET /comments/1/edit
   def edit
     @record = Record.find(params[:record_id])
-    @comment = Comment.find(params[:record_id])
+    @comment = Comment.find(params[:id])
   end
 
   # POST /comments
@@ -46,6 +46,8 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
+    @comment = Comment.find(params[:id])
+    @record = @comment.record
     respond_to do |format|
       if @comment.update(comment_params)
         format.html { redirect_to record_comment_path(@comment.record, @comment), notice: 'Comment was successfully updated.' }
