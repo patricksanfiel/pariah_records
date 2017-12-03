@@ -10,6 +10,8 @@ class CommentsController < ApplicationController
   # GET /comments/1
   # GET /comments/1.json
   def show
+    @record = Record.find(params[:record_id])
+    @comment = Comment.find(params[:id])
   end
 
   # GET /comments/new
@@ -20,7 +22,8 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
-    @trip = Trip.find(params[:trip_id])
+    @record = Record.find(params[:record_id])
+    @comment = Comment.find(params[:record_id])
   end
 
   # POST /comments
@@ -31,7 +34,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.html { redirect_to record_comment_path(@record, @comment), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
@@ -45,7 +48,7 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
+        format.html { redirect_to record_comment_path(@comment.record, @comment), notice: 'Comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :edit }
