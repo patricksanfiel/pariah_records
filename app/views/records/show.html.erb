@@ -22,7 +22,7 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @record.price %>
+  <%= number_to_currency(@record.price) %>
 </p>
 <span class='commentheader'>Comments</span><br />
 <% @record.comments.each do |comment| %>

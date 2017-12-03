@@ -1,6 +1,7 @@
 class RecordsController < ApplicationController
   before_action :set_record, only: [:show, :edit, :update, :destroy]
   before_action :authorize, only: [:edit, :update]
+  before_action :check_user, only: [:edit, :update, :destroy]
 
   # GET /records
   # GET /records.json
@@ -27,7 +28,7 @@ class RecordsController < ApplicationController
   # POST /records.json
   def create
     @record = Record.new(record_params)
-
+    @record.user_id = current_user.id
     respond_to do |format|
       if @record.save
         format.html { redirect_to @record, notice: 'Record was successfully created.' }
@@ -74,5 +75,9 @@ class RecordsController < ApplicationController
       params.require(:record).permit(:title, :artist, :genre, :year, :price)
     end
 
-    
+    def check_user
+      if @current_user.id != @record.user_id
+        redirect_to root_url, alert: "Sorry, this listing belongs to someone else"
+      end
+    end
 end

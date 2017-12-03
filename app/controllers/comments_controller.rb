@@ -32,7 +32,7 @@ class CommentsController < ApplicationController
   def create
     @record = Record.find(params[:record_id])
     @comment = @record.comments.new(comment_params)
-
+    @comment.user_id = current_user.id
     respond_to do |format|
       if @comment.save
         format.html { redirect_to record_comment_path(@record, @comment), notice: 'Comment was successfully created.' }
