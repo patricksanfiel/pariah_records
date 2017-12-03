@@ -1,5 +1,6 @@
 class RecordsController < ApplicationController
   before_action :set_record, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, only: [:edit, :update]
 
   # GET /records
   # GET /records.json
@@ -72,4 +73,6 @@ class RecordsController < ApplicationController
     def record_params
       params.require(:record).permit(:title, :artist, :genre, :year, :price)
     end
+
+    
 end
