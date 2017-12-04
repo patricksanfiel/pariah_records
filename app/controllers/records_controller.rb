@@ -76,7 +76,7 @@ class RecordsController < ApplicationController
     end
 
     def check_user
-      if @current_user.id != @record.user_id
+      if current_user.id != @record.user_id
         redirect_to root_url, alert: "Sorry, this listing belongs to someone else"
       end
     end

@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+ @font-face {
+     font-family: 'got_heroinregular';
+     src: url('sex_pistols-webfont.woff2') format('woff2'),
+          url('sex_pistols-webfont.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+
+ }
+
+.homepageheader{
+  text-align: center;
+  font-family: sex_pistolsregular;
+  font-size: 10em;
+}
+
+.homepagesubheading{
+  text-align: center;
+  font-family: 'Special Elite', cursive;
+}
