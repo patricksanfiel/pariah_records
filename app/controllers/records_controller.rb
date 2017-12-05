@@ -1,6 +1,6 @@
 class RecordsController < ApplicationController
   before_action :set_record, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, only: [:edit, :update]
+  before_action :authorize, only: [:create, :edit, :update]
   before_action :check_user, only: [:edit, :update, :destroy]
 
   # GET /records
@@ -16,7 +16,6 @@ class RecordsController < ApplicationController
 
   # GET /records/new
   def new
-
     @record = Record.new
   end
 

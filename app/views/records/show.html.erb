@@ -1,29 +1,30 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @record.title %>
+  <strong class="showrecordheaders">Title:</strong>
+  <span class='showrecordinfo'><%= @record.title %></span>
 </p>
 
 <p>
-  <strong>Artist:</strong>
-  <%= @record.artist %>
+  <strong class="showrecordheaders">Artist:</strong>
+  <span class='showrecordinfo'><%= @record.artist %></span>
 </p>
 
 <p>
-  <strong>Genre:</strong>
-  <%= @record.genre %>
+  <strong class="showrecordheaders">Genre:</strong>
+  <span class='showrecordinfo'><%= @record.genre %></span>
 </p>
 
 <p>
-  <strong>Year:</strong>
-  <%= @record.year %>
+  <strong class="showrecordheaders">Year:</strong>
+  <span class='showrecordinfo'><%= @record.year %></span>
 </p>
 
 <p>
-  <strong>Price:</strong>
-  <%= number_to_currency(@record.price) %>
-</p>
+  <strong class="showrecordheaders">Price:</strong>
+  <span class="showrecordinfo"><%= number_to_currency(@record.price) %></span>
+</p><br /><br />
+
 <span class='commentheader'>Comments</span><br />
 <% @record.comments.each do |comment| %>
 <p><span class='commenttitle'><%= comment.title %></span><br />

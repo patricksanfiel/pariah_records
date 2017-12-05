@@ -33,3 +33,20 @@
   text-align: center;
   font-family: 'Special Elite', cursive;
 }
+
+.commenttitle{
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+.commentheader{
+  font-size: 2em;
+}
+
+.showrecordinfo{
+  font-size: 3em;
+}
+
+.showrecordheaders{
+  font-size: 3em;
+}
