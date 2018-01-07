@@ -50,3 +50,7 @@
 .showrecordheaders{
   font-size: 3em;
 }
+
+#alert{
+  color: red;
+}

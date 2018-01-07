@@ -1,6 +1,6 @@
 class RecordsController < ApplicationController
   before_action :set_record, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, only: [:create, :edit, :update]
+  before_action :authorize, only: [:create, :edit, :update, :destroy]
   before_action :check_user, only: [:edit, :update, :destroy]
 
   # GET /records
@@ -76,7 +76,9 @@ class RecordsController < ApplicationController
 
     def check_user
       if current_user.id != @record.user_id
-        redirect_to root_url, alert: "Sorry, this listing belongs to someone else"
+        respond_to do |format|
+          format.html { redirect_to records_url, alert: "Sorry, this listing belongs to someone else." }
+        end
       end
     end
 end
