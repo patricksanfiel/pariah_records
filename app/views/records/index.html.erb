@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Album Cover</th>
       <th>Title</th>
       <th>Artist</th>
       <th>Genre</th>
@@ -17,6 +18,7 @@
   <tbody>
     <% @records.each do |record| %>
       <tr>
+        <td><%= image_tag record.avatar.url(:thumb) %></td>
         <td><%= record.title %></td>
         <td><%= record.artist %></td>
         <td><%= record.genre %></td>

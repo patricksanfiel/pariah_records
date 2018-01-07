@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+<%= image_tag @record.avatar.url(:medium) %>
+</p>
+
+<p>
   <strong class="showrecordheaders">Title:</strong>
   <span class='showrecordinfo'><%= @record.title %></span>
 </p>
