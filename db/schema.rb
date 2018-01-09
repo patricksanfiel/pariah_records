@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20180107023514) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "record_id"
-    t.integer "user_id"
+    t.bigint "record_id"
+    t.bigint "user_id"
     t.index ["record_id"], name: "index_comments_on_record_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -31,7 +34,7 @@ ActiveRecord::Schema.define(version: 20180107023514) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "avatar_file_name"
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
@@ -46,4 +49,7 @@ ActiveRecord::Schema.define(version: 20180107023514) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "comments", "records"
+  add_foreign_key "comments", "users"
+  add_foreign_key "records", "users"
 end
