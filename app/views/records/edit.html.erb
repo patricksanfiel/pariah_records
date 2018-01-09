@@ -1,6 +1,8 @@
-<h1>Editing Record</h1>
+<div class="myformdiv">
+<h1 class="formtitles">Editing Record</h1><br>
 
 <%= render 'form', record: @record %>
 
-<%= link_to 'Show', @record %> |
-<%= link_to 'Back', records_path %>
+<%= link_to '[Show]', @record, id:"footerlink", style:"font-size:1em" %>
+<%= link_to '[Back]', records_path, id:"footerlink", style:"font-size:1em" %>
+</div>

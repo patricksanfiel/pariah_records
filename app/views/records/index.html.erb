@@ -1,38 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Records</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Album Cover</th>
-      <th>Title</th>
-      <th>Artist</th>
-      <th>Genre</th>
-      <th>Year</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @records.each do |record| %>
-      <tr>
-        <td><%= image_tag record.avatar.url(:thumb) %></td>
-        <td><%= record.title %></td>
-        <td><%= record.artist %></td>
-        <td><%= record.genre %></td>
-        <td><%= record.year %></td>
-        <td><%= number_to_currency(record.price) %></td>
-        <td><%= link_to 'Show', record %></td>
-        <td><%= link_to 'Edit', edit_record_path(record) %></td>
-        <td><%= link_to 'Destroy', record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div id="mypageheaders"><br>
+  <h1 class="pageheaderfont">Records</h1><br>
+</div>
+<% @records.each do |record| %>
+<div class="card" style="width: 22rem;">
+  <div class="cardimage">
+    <%= image_tag record.avatar.url(:medium), class: "albumcover" %>
+  </div>
+  <div class="card-header">
+    <h5 class="card-title"><%= record.title %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= record.artist %></h6>
+  </div>
+  <div class="card-body">
+    <p class="card-text">
+      Genre: <%= record.genre %><br>
+      Year: <%= record.year %><br>
+      Price: <%= number_to_currency(record.price) %><br><br>
+    </p>
+  </div>
+  <div class="card-footer text-muted">
+    <span class="badge badge-pill badge-light"><%= link_to 'Show', record %></span>
+    <span class="badge badge-pill badge-light"><%= link_to 'Edit', edit_record_path(record) %></span>
+    <span class="badge badge-pill badge-light"><%= link_to 'Delete', record, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+  </div>
+</div>
+<% end %>
 
 <br>
 
-<%= link_to 'New Record', new_record_path %>
-<%= link_to 'Home', controller: :welcome, action: :home %>
+<%= link_to "[New Record]", new_record_path,id:"footerlink" %>
+<%= link_to "[Home]", root_url, id:"footerlink" %>

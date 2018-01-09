@@ -1,3 +1,36 @@
 // Place all the styles related to the records controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.card{
+  display: inline-block;
+  margin-right: 1.5em;
+  margin-top: 4em;
+}
+
+.albumcover{
+  padding-left: 1.85em;
+  padding-top: 1.85em;
+  padding-bottom: 1.85em;
+}
+
+.recordsindex{
+  text-align: center;
+}
+.showalbumcover{
+  padding-left: 7em;
+  padding-top: 1.85em;
+  padding-bottom: 1.85em;
+}
+
+#showcard{
+  margin-left: 25em;
+}
+
+.cardimage{
+  background-color: #708090;
+}
+
+.commentheader{
+  text-decoration: underline;
+  font-size: 2em;
+}

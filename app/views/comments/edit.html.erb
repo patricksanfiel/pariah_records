@@ -1,6 +1,8 @@
-<h1>Editing Comment</h1>
+<div class="myformdiv">
+  <h1 class="formtitles">Editing Comment</h1>
 
-<%= render 'form', comment: @comment %>
+  <%= render 'form', comment: @comment %>
 
-<%= link_to 'Show', [@record, @comment] %> |
-<%= link_to 'Back', records_path(@record) %>
+  <%= link_to 'Show', [@record, @comment] %> |
+  <%= link_to 'Back', records_path(@record) %>
+</div>

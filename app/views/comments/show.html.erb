@@ -1,14 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div class="mynotifications">
+  <p id="notice"><%= notice %></p>
+</div>
 
-<p>
-  <strong>Title:</strong>
+<p class="formtitles">
+  <strong>Title:</strong><br>
   <%= @comment.title %>
 </p>
 
-<p>
-  <strong>Body:</strong>
+<p class="formtitles">
+  <strong>Body:</strong><br>
   <%= @comment.body %>
 </p>
 
-<%= link_to 'Edit', edit_record_comment_path(@record, @comment) %> |
-<%= link_to 'Back', record_path(@record) %>
+<%= link_to '[Edit]', edit_record_comment_path(@record, @comment), id:"footerlink", style:"font-size: 1em" %>
+<%= link_to '[Back]', record_path(@record), id:"footerlink", style:"font-size: 1em" %>

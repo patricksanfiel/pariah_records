@@ -1,5 +1,8 @@
-<h1>New Comment</h1>
+<div class="myformdiv">
+
+<h1 class="formtitles">New Comment</h1><br>
 
 <%= render 'form', comment: @comment %>
 
-<%= link_to 'Back', records_path(@record) %>
+<%= link_to '[Back]', records_path(@record), id:"footerlink", style:"font-size:1em" %>
+</div>
